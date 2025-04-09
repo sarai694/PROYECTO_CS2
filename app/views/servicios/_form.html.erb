@@ -1,0 +1,42 @@
+<%= form_with(model: servicio) do |form| %>
+  <% if servicio.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(servicio.errors.count, "error") %> prohibited this servicio from being saved:</h2>
+
+      <ul>
+        <% servicio.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :codigo_servicio, style: "display: block" %>
+    <%= form.text_field :codigo_servicio %>
+  </div>
+
+  <div>
+    <%= form.label :nombre, style: "display: block" %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div>
+    <%= form.label :descripcion, style: "display: block" %>
+    <%= form.text_area :descripcion %>
+  </div>
+
+  <div>
+    <%= form.label :costo_base, style: "display: block" %>
+    <%= form.text_field :costo_base %>
+  </div>
+
+  <div>
+    <%= form.label :laboratorista_id, style: "display: block" %>
+    <%= form.number_field :laboratorista_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
